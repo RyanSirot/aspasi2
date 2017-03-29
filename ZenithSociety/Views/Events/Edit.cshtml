@@ -1,0 +1,59 @@
+@model ZenithSociety.Models.Business.Event
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <h4>Event</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @Html.HiddenFor(model => model.UserName)
+    <input type="hidden" asp-for="EventId" />
+        <div class="form-group">
+            <label asp-for="ActivityId" class="control-label col-md-2">Activity</label>
+            <div class="col-md-10">
+                <select asp-for="ActivityId" class="form-control" asp-items="ViewBag.ActivityId"></select>
+                <span asp-validation-for="ActivityId" class="text-danger" ></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="EventFrom" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="EventFrom" class="form-control" />
+                <span asp-validation-for="EventFrom" class="text-danger" ></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="EventTo" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="EventTo" class="form-control" />
+                <span asp-validation-for="EventTo" class="text-danger" ></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="IsActive" />
+                    <label asp-for="IsActive"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

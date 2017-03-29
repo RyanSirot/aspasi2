@@ -1,0 +1,46 @@
+﻿@using ZenithSociety.Models.AccountViewModels
+
+@model IEnumerable<RoleViewModel>
+@{
+    ViewBag.Title = "User Roles";
+}
+
+<h2>@ViewBag.Title</h2>
+<form asp-controller="Home" asp-action="Identity" method="post" class="form-horizontal" role="form">
+<div class="form-horizontal">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">New Role:</label>
+        <div class="col-md-10">
+            <input  class="form-control" name="RoleName" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+</form>
+@if((int)ViewBag.State == 1)
+{
+    <p class="text-info">@ViewBag.Role has been added</p>
+}
+else if ((int)ViewBag.State == 3)
+{
+
+    <p class="text-danger">@ViewBag.Role has already existed</p>
+}
+<table class="table">
+    <tr>
+        <th>Role</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoleName)
+            </td>
+        </tr>
+    }
+</table>

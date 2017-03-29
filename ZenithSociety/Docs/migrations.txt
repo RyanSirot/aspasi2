@@ -1,0 +1,12 @@
+﻿==============================  ApplicationDbContext =============================
+
+dotnet ef migrations add IdentityMigration -o Migrations\Identity
+
+dotnet ef database update 
+
+==============================  Activity/Event =============================
+
+dotnet ef migrations add BusinessMigration -o Migrations\Business
+
+dotnet ef database update 
+

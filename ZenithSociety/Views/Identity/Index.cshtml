@@ -1,0 +1,21 @@
+﻿@{ 
+    ViewBag.Title = "User & Roles Management";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <li><a asp-area="" asp-controller="Home" asp-action="Identity">Add Roles</a></li>
+</div>
+<div>
+    <li><a asp-area="" asp-controller="Identity" asp-action="RemoveRoles">Remove Roles</a></li>
+</div>
+<div>
+    <li><a asp-area="" asp-controller="Identity" asp-action="AddUsers">Add Users</a></li>
+</div>
+<div>
+    <li><a asp-area="" asp-controller="Identity" asp-action="AddUsersToRoles">Add Users To Roles</a></li>
+</div>
+<div>
+    <li><a asp-area="" asp-controller="Identity" asp-action="RemoveUsersToRoles">Remove Users To Roles</a></li>
+</div>
